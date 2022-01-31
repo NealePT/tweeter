@@ -1,4 +1,37 @@
-.new-tweet textarea{
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.tweetBottom {
+  font-family: "Bungee";
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tweetBottom button:hover {
+  border: 2px solid #4056A1;
+  background-color: #FFFFFF;
+  color: #4056A1;
+}
+
+.tweetBottom button {
+    background-color: #4056A1;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tweetTop textarea{
   resize: none;
   border: none;
   outline: none;
@@ -11,4 +44,3 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
 };
-
