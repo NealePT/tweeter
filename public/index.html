@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -50,14 +51,17 @@
   
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h2>Tweet</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid sed aperiam, temporibus voluptatibus aliquam suscipit accusantium eveniet excepturi sint, amet, molestiae nisi ad ex neque deserunt nam facilis voluptatum totam!
-      Ratione laboriosam aspernatur, maiores reiciendis, vero nostrum consequuntur facilis quas mollitia nemo provident accusamus maxime praesentium impedit amet. Iste deserunt adipisci asperiores sed nobis autem perspiciatis accusamus ad. Ipsum, voluptate!
-      Voluptate amet velit incidunt debitis magnam eos vitae exercitationem error eveniet, ducimus tenetur iure consequatur odit explicabo saepe perferendis commodi quos reprehenderit officia placeat maxime, aliquam necessitatibus! Exercitationem, doloribus modi.</p>
-      <h2>Another tweet</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a, vitae impedit enim ea minima nostrum nisi dolorem temporibus ipsum fuga voluptate doloremque excepturi labore similique at optio facere? Impedit.
-      Harum error voluptates similique eos quidem, quia alias sed ut vitae expedita in iure laboriosam, accusantium cupiditate quod omnis a. Odit voluptatem sapiente distinctio ab expedita earum libero deserunt dicta.
-      Consequatur quas et ad corrupti! Incidunt, magni. Ea velit mollitia dignissimos neque dolores eaque ratione iusto delectus accusantium. Ex asperiores eum autem labore quis quibusdam impedit molestias itaque fuga perspiciatis.</p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets/" method="POST">
+          <!-- <label for="tweet-text">What are you humming about?</label> -->
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>      
     </main>
   </body>
 </html>
