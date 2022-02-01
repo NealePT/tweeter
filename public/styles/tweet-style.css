@@ -60,4 +60,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 20px;
+  transition: box-shadow .3s;
+}
+
+.tweetContainer:hover {
+  box-shadow: 5px 5px #B3C2F2;
+}
+
+#flag:hover {
+  color: orange;
+}
+
+#retweet:hover {
+  color: green;
+}
+
+#heart:hover {
+  color: red;
 }
