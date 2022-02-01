@@ -7,7 +7,7 @@ $(document).ready(function() {
     // console.log(charRemaining);
 
     let counter = $(this).parent().next('section').children('.counter');
-    counter.text(charRemaining);
+    counter.html(charRemaining);
 
     if (charRemaining < 0) {
       counter.addClass('negativeCount');
