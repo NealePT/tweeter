@@ -7,32 +7,34 @@
 $(document).ready(function() {
   // Test / driver code (temporary). Eventually will get this from the server.
   const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
         "handle": "@SirIsaac"
       },
-    "content": {
+      "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
+      "created_at": 1461116232227
     },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1643738754428
-  }
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
   ]
 
+
+
   const createTweetElement = function(data) {
-    const layout = `
+    let $tweet = `
     <article class="tweet">
       <header class="tweetHeader">
         <div class="headerLeft">
@@ -47,7 +49,7 @@ $(document).ready(function() {
         <p>${data.content.text}</p>
       </section>
       <footer class="tweetFooter">
-        <p>${data.created_at}</p>
+        <p>${timeago.format(data.created_at)}</p>
         <div class="footerIcons">
           <i id="flag" class="fas fa-flag"></i>
           <i id="retweet" class="fas fa-retweet"></i>
@@ -56,14 +58,14 @@ $(document).ready(function() {
       </footer>
     </article>
     `
-    $('#tweets-container').append(layout)
+    return $tweet;
   }
 
-  const appendMultipleTweets = function(data) {
+  const renderTweets = function(data) {
     for (let tweet of data) {
-      createTweetElement(tweet);
+      $('#tweets-container').append(createTweetElement(tweet));
     }
   }
-  appendMultipleTweets(data);
-});
+  renderTweets(data);
 
+});
