@@ -55,7 +55,7 @@
   margin: 0px 3px;
 }
 
-.tweetContainer {
+.tweet {
   border: 4px solid #545149;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@
   transition: box-shadow .3s;
 }
 
-.tweetContainer:hover {
+.tweet:hover {
   box-shadow: 5px 5px #B3C2F2;
 }
 
