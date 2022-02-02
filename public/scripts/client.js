@@ -6,23 +6,29 @@
 
 $(document).ready(function() {
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };  
+
   const createTweetElement = function(data) {
     let $tweet = `
     <article class="tweet">
       <header class="tweetHeader">
         <div class="headerLeft">
-          <img src="${data.user.avatars}" alt="">
-          <p class="tweetAuthorName">${data.user.name}</p>
+          <img src="${escape(data.user.avatars)}" alt="">
+          <p class="tweetAuthorName">${escape(data.user.name)}</p>
         </div>
         <div class="headerRight">
-          <h4 class="tweetAuthorHandle">${data.user.handle}</h4>
+          <h4 class="tweetAuthorHandle">${escape(data.user.handle)}</h4>
         </div>
       </header>
       <section class="tweetMain">
-        <p>${data.content.text}</p>
+        <p>${escape(data.content.text)}</p>
       </section>
       <footer class="tweetFooter">
-        <p>${timeago.format(data.created_at)}</p>
+        <p>${escape(timeago.format(data.created_at))}</p>
         <div class="footerIcons">
           <i id="flag" class="fas fa-flag"></i>
           <i id="retweet" class="fas fa-retweet"></i>
@@ -35,8 +41,10 @@ $(document).ready(function() {
   }
 
   const renderTweets = function(data) {
+    // Empties tweet container before being refilled (prevents duplication of tweets after new tweet is posted)
     $('#tweets-container').empty();
     for (let tweet of data) {
+      // Adds new tweet to the top of the list (thanks to prepend rather than append)
       $('#tweets-container').prepend(createTweetElement(tweet));
     }
   }
@@ -67,8 +75,11 @@ $(document).ready(function() {
       .then(function(tweet) {
         console.log("Tweet sent!");
         $('#tweet-text').val();
+        // Renders tweets again after posting
         loadTweets()
       })
+    // Clears text field after tweet is successfully posted
+    $('#tweet-text').val('');
     });
 
 
