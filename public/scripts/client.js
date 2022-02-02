@@ -60,12 +60,14 @@ $(document).ready(function() {
     console.log("Tweet submitted!")
     event.preventDefault();
 
+    // Slides down error message if user submits tweet without any text
     if (!$('#tweet-text').val()) {
-      alert("Tweet must not be empty!");
+      $('.newTweetError').text('Tweet must not be empty!').slideDown();
       return;
-    } 
+    }
+    // Slides down error message if tweet is too long
     if ($('#tweet-text').val().length > 140) {
-      alert("Tweet is too long! Look at the character counter.")
+      $('.newTweetError').text("Tweet is too long! Look at the character counter.").slideDown();
       return;
     }
     $.ajax('/tweets', {
@@ -75,16 +77,18 @@ $(document).ready(function() {
       .then(function(tweet) {
         console.log("Tweet sent!");
         $('#tweet-text').val();
+        // Removes error message before rendering tweets again
+        $('.newTweetError').slideUp();
         // Renders tweets again after posting
         loadTweets()
       })
-    // Clears text field after tweet is successfully posted
+    // Clears text field and resets character counter after tweet is successfully posted
     $('#tweet-text').val('');
+    $('.counter').text(140);
     });
 
 
-
+  // Initial load of tweets
   loadTweets();
-
 
 });
