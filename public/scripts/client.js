@@ -5,33 +5,6 @@
  */
 
 $(document).ready(function() {
-  // Test / driver code (temporary). Eventually will get this from the server.
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ]
-
-
 
   const createTweetElement = function(data) {
     let $tweet = `
@@ -62,24 +35,45 @@ $(document).ready(function() {
   }
 
   const renderTweets = function(data) {
+    $('#tweets-container').empty();
     for (let tweet of data) {
-      $('#tweets-container').append(createTweetElement(tweet));
+      $('#tweets-container').prepend(createTweetElement(tweet));
     }
   }
-  renderTweets(data);
+
+  const loadTweets = function() {
+    $.ajax('/tweets', { method: 'GET' })
+    .then(function(data) {
+      renderTweets(data);
+    });
+  }
 
   $(".newTweetSubmit").submit(function(event) {
     console.log("Tweet submitted!")
     event.preventDefault();
+
+    if (!$('#tweet-text').val()) {
+      alert("Tweet must not be empty!");
+      return;
+    } 
+    if ($('#tweet-text').val().length > 140) {
+      alert("Tweet is too long! Look at the character counter.")
+      return;
+    }
     $.ajax('/tweets', {
       method: 'POST',
       data: $(this).serialize()
     })
       .then(function(tweet) {
         console.log("Tweet sent!");
-        $('this').val();
+        $('#tweet-text').val();
+        loadTweets()
       })
     });
+
+
+
+  loadTweets();
 
 
 });
