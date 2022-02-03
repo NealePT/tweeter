@@ -16,6 +16,15 @@ $(document).ready(function() {
     }
   });
 
+    function scrollToTop() {
+      // Scroll to top logic
+      const rootElement = document.documentElement;
+      rootElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    }
+
     // Write new tweet button
     $('.navNewTweet').on('click', function() {
       $('.new-tweet').slideToggle(200);
@@ -30,8 +39,11 @@ $(document).ready(function() {
   });
 
     $('.arrowButton').on('click', function() {
-      $('.new-tweet').slideToggle(200);
+      $('.new-tweet').slideDown(200);
       $('#tweet-text').focus();
       $('#tweet-text').select();
+      scrollToTop();
     })
+
+
 });
