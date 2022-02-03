@@ -1,3 +1,5 @@
+// Contains character counter and compose tweet buttons
+
 $(document).ready(function() {
   console.log("Document loaded!");
 
@@ -44,6 +46,4 @@ $(document).ready(function() {
       $('#tweet-text').select();
       scrollToTop();
     })
-
-
 });
