@@ -4,6 +4,19 @@ Tweeter is a simple, single-page Twitter clone.
 
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
 
+## Screenshots
+
+!["Screenshot of the homepage on desktop"] (https://github.com/NealePT/tweeter/blob/master/docs/desktop-home.png)
+
+!["Screenshot of the homepage on desktop with popout new tweet box enabled"] (https://github.com/NealePT/tweeter/blob/master/docs/desktop-new-tweet.png)
+
+!["Screenshot of the homepage on desktop scrolled down, showing 'Return to top button'"] (https://github.com/NealePT/tweeter/blob/master/docs/desktop-scrolled.png)
+
+!["Screenshot of the homepage on a tablet"] (https://github.com/NealePT/tweeter/blob/master/docs/tablet-home.png)
+
+!["Screenshot of the homepage on a tablet"] (https://github.com/NealePT/tweeter/blob/master/docs/mobile-home.png)
+
+
 ## Getting Started
 
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
