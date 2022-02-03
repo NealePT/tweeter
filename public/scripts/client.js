@@ -96,5 +96,7 @@ $(document).ready(function() {
 
   $('.navNewTweet').on('click', function() {
     $('.new-tweet').slideToggle(200);
+    $('#tweet-text').focus();
+    $('#tweet-text').select();
   })
 });
