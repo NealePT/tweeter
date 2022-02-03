@@ -56,6 +56,7 @@ $(document).ready(function() {
     });
   }
 
+  // When someone clicks the Tweet button:
   $(".newTweetSubmit").submit(function(event) {
     console.log("Tweet submitted!")
     event.preventDefault();
@@ -91,4 +92,9 @@ $(document).ready(function() {
   // Initial load of tweets
   loadTweets();
 
+
+
+  $('.navNewTweet').on('click', function() {
+    $('.new-tweet').slideToggle(200);
+  })
 });
