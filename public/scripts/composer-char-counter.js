@@ -15,4 +15,11 @@ $(document).ready(function() {
       counter.removeClass('negativeCount');
     }
   });
+
+    // Write new tweet button
+    $('.navNewTweet').on('click', function() {
+      $('.new-tweet').slideToggle(200);
+      $('#tweet-text').focus();
+      $('#tweet-text').select();
+    })
 });

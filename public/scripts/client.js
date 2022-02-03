@@ -92,11 +92,4 @@ $(document).ready(function() {
   // Initial load of tweets
   loadTweets();
 
-
-
-  $('.navNewTweet').on('click', function() {
-    $('.new-tweet').slideToggle(200);
-    $('#tweet-text').focus();
-    $('#tweet-text').select();
-  })
 });
