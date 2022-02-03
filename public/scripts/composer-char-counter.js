@@ -22,4 +22,16 @@ $(document).ready(function() {
       $('#tweet-text').focus();
       $('#tweet-text').select();
     })
+
+    $(window).scroll(function(){
+      $('.arrowButton').toggleClass('scrolled', $(this).scrollTop() > 100);
+      $('.navNewTweet').toggleClass('notScrolled', $(this).scrollTop() > 100);
+
+  });
+
+    $('.arrowButton').on('click', function() {
+      $('.new-tweet').slideToggle(200);
+      $('#tweet-text').focus();
+      $('#tweet-text').select();
+    })
 });
